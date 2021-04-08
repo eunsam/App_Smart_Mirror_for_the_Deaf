@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:text="♡학습할 음절 및 단어를 선택하세요♡"
+        android:textColor="#ffffff"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/btnGoToMain"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="메인으로 돌아가기"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:textAlignment="center" />
+
+    <GridView
+        android:id="@+id/gridView_main"
+        android:layout_width="match_parent"
+        android:layout_height="416dp"
+        android:layout_weight="1.16"
+        android:adjustViewBounds="true"
+        android:columnWidth="135px"
+        android:listSelector="#000000"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="2px"></GridView>
+
+
+
+</LinearLayout>

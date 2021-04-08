@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="#000000"
+    android:weightSum="1">
+
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="함께 연습해봅시다."
+        android:layout_marginTop="10dp"
+        android:textSize="40sp"
+        android:gravity="center_horizontal" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.38">
+        <TextView
+            android:textColor="#ffffff"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
+
+        <TextView
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="학습할 단어는 무엇인가요?"
+            android:id="@+id/tv_edu_words"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:layout_marginBottom="25dp"/>
+
+        <TextView
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="아래 마이크 모양 버튼을 눌러주세요 :)\n거울을 보고 말 해주세요!"
+            android:id="@+id/result_of_sst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginBottom="25dp"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            android:src="@drawable/mic" />
+        </LinearLayout>
+
+    <!--<Button
+        android:text="저장하기"
+        android:layout_width="91dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSave"
+        android:textAlignment="center"
+        android:elevation="0dp" />
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:id="@+id/tv" />-->
+
+</LinearLayout>

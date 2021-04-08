@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#000000">
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.09"
+        android:layout_marginTop="30px"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:textSize="20pt"
+        android:textAlignment="center"
+        android:text="닉네임"
+        android:layout_marginTop="15px"
+        android:textColor="#ffffff"/>
+
+    <!--<TextView
+        android:id="@+id/tv_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:textSize="20pt"
+        android:textAlignment="center"
+        android:text="학습 범위"
+        android:layout_marginTop="15px"
+        android:textColor="#ffffff"/>-->
+
+    <ImageButton
+        android:id="@+id/logoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:background="#00000000"
+        android:onClick="mClickLogout"
+        android:src="@drawable/btn_logout"
+        android:text="로그아웃" />
+
+</LinearLayout>

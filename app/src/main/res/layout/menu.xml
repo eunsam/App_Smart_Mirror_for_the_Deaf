@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menuLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/educateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
+        android:text="학습하기" />
+
+    <Button
+        android:id="@+id/idBtn"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="회원 정보" />
+
+    <Button
+        android:id="@+id/settingBtn"
+        android:layout_width="match_parent"
+        android:layout_height="139dp"
+        android:text="IP 설정" />
+
+    <Button
+        android:id="@+id/idUse"
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        android:text="사용 가이드" />
+
+    <Button
+        android:id="@+id/terminateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        android:onClick="ter"
+        android:text="종료하기" />
+
+</LinearLayout>

@@ -1,0 +1,185 @@
+package com.example.vicl_10.lipinthemirror;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.io.IOException; //???
+
+import static com.example.vicl_10.lipinthemirror.MenuActivity.m_dis;
+import static com.example.vicl_10.lipinthemirror.MenuActivity.m_dos;
+import static com.example.vicl_10.lipinthemirror.MenuActivity.m_gsocket;
+
+/**
+ * Created by VICL-10
+ */
+
+
+public class TCPClient extends Thread {
+    private String mMessage = null;
+    static String line;
+    /*private Socket msocket = null;
+    private DataInputStream mis = null;
+    private DataOutputStream mos = null;
+
+    private String rMessage = null;*/
+
+   // public static final int SERVERPORT = 6667;
+    //public static final String ip = "192.168.0.27";
+    //public static final String ip = SettingActivity.smartmirror_IP;
+    //private String smartmirror_IP;
+    //private SharedPreferences prefs;
+
+    //Socket m_socket;
+    //DataInputStream m_dis;
+    //DataOutputStream m_dos;
+
+    /*public TCPClient(Socket socket, DataInputStream is, DataOutputStream os, String msg) {
+        super();
+        this.msocket = socket;
+        this.mis = is;
+        this.mos = os;
+        this.mMessage = msg;
+    }*/
+
+    // TCP/IP
+   // public Socket m_socket;
+    //public final static String HOST = "192.168.0.27";
+    //public final static int PORT = 6667;
+    //DataInputStream m_dis;
+    //DataOutputStream m_dos;
+
+    Message msg;
+
+    private Handler mHandler;
+    /*private Context mCtx;
+
+    public TCPClient(Context context)
+    {
+        mCtx = context;
+    }*/
+
+    public TCPClient(String msg)
+    {
+        super();
+        this.mMessage = msg;
+        //send();
+       // this.m_socket = socket;
+    }
+
+    public TCPClient(Handler handler){
+        mHandler = handler;
+    }
+
+    public void send()
+    {
+        try{
+            Thread.sleep(200);
+            if(line != null) {
+                msg = Message.obtain();
+//            if (line == null)
+//                return;
+
+                //msg.obj = line;
+                msg.obj = line;
+
+
+                mHandler.sendMessage(msg);
+            }
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void run() {
+
+        //final DBHelper dbHelper = new DBHelper(mCtx, "SettingIP.db", null, 1); //?
+
+        try {
+            //String line;
+            //
+
+            Log.e("TCP", "TCP C: Start...");
+            //InetAddress serverAddr = InetAddress.getByName("192.168.0.27");
+            //InetAddress myAddress = InetAddress.getLocalHost();
+            //m_socket = new Socket("192.168.0.27",6667);//SettingActivity.smartmirror_IP, SERVERPORT);
+            //m_dos = new DataOutputStream(m_socket.getOutputStream());'
+            if (m_gsocket == null){
+                m_gsocket = new Socket();
+
+            }
+
+            if (!m_gsocket.isConnected()) {
+                m_gsocket.connect(new InetSocketAddress(SettingActivity.smartmirror_IP, 6667));//SettingActivity.smartmirror_IP, SettingActivity.smartmirror_PORT);
+            }
+
+            if(m_dos == null)
+                m_dos = new DataOutputStream(m_gsocket.getOutputStream());
+            if(m_dis == null)
+                m_dis = new DataInputStream(m_gsocket.getInputStream());
+
+            Log.e("TCP", "TCP C: Connecting...");
+            try {
+                Log.e("TCP", "TCP C: Sending...");
+                m_dos.writeBytes(mMessage);
+                m_dos.flush();
+                Log.e("TCP", "TCP C: Sent.(" + mMessage + ")");
+                Log.e("TCP", "TCP C: Done.");
+
+              //  if("가" == mMessage) {
+
+
+
+                    BufferedReader networkReader = new BufferedReader(new InputStreamReader(m_gsocket.getInputStream()));
+                    line = networkReader.readLine();
+
+                Log.d("TCP", "C:Received..." + line);
+
+  //
+                    //send(line);
+                   //}
+              //  }
+
+            }catch (Exception e) {
+                Log.e("TCP", "TCP C: Error1", e);
+            }finally {
+                //m_gsocket.close();
+            }
+        } catch (Exception e) {
+            Log.e("TCP", "TCP C: Error2", e);
+        }
+    }
+
+}
+                /*if(rMessage!=null)
+                {
+                    while(true)
+                    {
+                        temp = m_dis.readUTF();
+                        Log.e("TCP", "TCP C: can receive."+temp+")");
+                    }
+                }
+            }catch(Exception e){
+                socket.close();
+            }
+            while(true)
+            {
+                temp = m_dis.readUTF();
+                Log.e("TCP", "TCP C: can receive."+temp+")");
+            }
+        }catch(Exception e) {
+            e.getMessage();
+        }
+
+    }*/

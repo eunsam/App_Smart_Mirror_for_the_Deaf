@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="50dp"
+        android:text="사용 가이드"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="238dp"
+        android:layout_weight="0.88"
+        android:text="1. 거울에 표시된 프레임안에 얼굴이 들어오도록 위치를 조정하세요.\n\n 2. App의 [학습하기]에서 원하는 학습 음절을 선택하세요.\n\n 3. 거울에 띄워진 비디오와 학습법을 읽고 거울을 본 상태로 연습하세요.\n\n 4. 올바른 발음인지 확인하고 싶으면 App의 마이크 버튼을 누르세요. \n마이크가 활성화되면 미러의 카메라가 작동하면서 입모양을 확인합니다.\n\n 5. 입모양과 인식된 음성 모두 올바른 음절을 말하고 있을 경우, \n다음 학습으로 넘어갈 수 있어요"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+
+</LinearLayout>

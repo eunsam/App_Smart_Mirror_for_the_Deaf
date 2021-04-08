@@ -1,0 +1,82 @@
+package com.example.vicl_10.lipinthemirror;
+
+import android.content.Context;
+import android.os.Handler;
+import android.util.Log;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.Socket;
+import static com.example.vicl_10.lipinthemirror.MenuActivity.m_gsocket;
+
+/**
+ * Created by VICL-10
+ */
+
+public class TCPListener extends Thread {
+
+    private Handler m_Handler;
+    private Socket m_socket;
+    private DataInputStream m_dis;
+    //private DataOutputStream m_dos;
+    private String readMsg ;
+    private Context m_context;
+
+    private String return_msg;
+
+    private InputStream in;
+
+    public TCPListener(Context context, Handler handler)
+    {
+        m_context = context;
+        m_Handler = handler;
+        /*try {
+            //m_socket = new Socket("127.0.0.1", 6667);
+            //
+            in = m_gsocket.getInputStream();
+            m_dis = new DataInputStream(in);
+            //m_dis = new DataInputStream(m_gsocket.getInputStream()); //원상복구 지점
+        }
+        catch (IOException e){
+
+        }*/
+    }
+
+    @Override
+    public void run()
+    {
+        int temp;
+        while(true) {
+            try{
+                Log.e("TCP", "try");
+                in = m_gsocket.getInputStream();
+                m_dis = new DataInputStream(in);
+                readMsg = m_dis.readUTF();
+                //
+                /*BufferedReader in = new BufferedReader(new InputStreamReader(m_gsocket.getInputStream()));
+                return_msg = in.readLine();
+                Toast.makeText(m_context, return_msg, Toast.LENGTH_SHORT).show();
+                *///
+                temp = 0;
+                m_Handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    Log.e("TCP", "run");
+                    Toast.makeText(m_context, readMsg, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            }
+            catch (IOException e)
+            {
+
+            }
+        }
+    }
+}
